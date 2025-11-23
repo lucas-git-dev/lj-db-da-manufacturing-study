@@ -1,26 +1,12 @@
 ## Estudo de SQL e Powerbi
 
-# Problemas para resolver
-    Qual fator teve maior impacto?
-    O que está correlacionado com a queda de eficiência?
-    Qual turno ou máquina está piorando o indicador?
-    A energia consumida está aumentando?
-    O que a fábrica deveria fazer nos próximos 30 dias?
-
-# Problemas para resolver em SQL
-    Média de unidades produzidas por turno
-    Top 5 dias com maior downtime
-    Correlação básica: mais downtime → menor produção?
-    Juntar produção + qualidade e descobrir:
-        dias com maior taxa de defeitos
-        se há relação entre defeitos e utilização da máquina
-
 # Dashboard com PowerBI
-    Produção por turno
-    Downtime por máquina
-    Taxa de defeitos
-    Consumo de energia
-    Painel final mostrando por que a eficiência caiu.
+    Produção por linha
+    ![Dashboard Industrial](images/prod_shift.png)
+    Defeitos por linha
+    ![Dashboard Industrial](images/defect_shift.png)
+    Média de defeitos
+    ![Dashboard Industrial](images/defect_mean.png)
 
 # Ferramentas
     MySQL para consultas
@@ -30,14 +16,17 @@
 # O que estou aprendendo
     Importar os arquivos pelo MySQL
     Consultas utilizando SQL
+        Baixar e utilizar MySQL connector
+        https://dev.mysql.com/downloads/file/?id=546186
     Importar para PowerBI
     Gerar o Dashboard pelo PowerBI
     Gerar Insights a partir do Dashboard
 
 # Principais Insights
-    A produção ficou 1,51% abaixo da meta do ano, representando 12.530 peças a menos que o planejado para o período
-    O produto com maior impacto negativo foi a Pastilha de Freio
-    A Linha C teve a maior produção total
-    Entre maio e agosto houve um pico de desempenho, seguido de queda no último trimestre
+    Março teve a maior produção do ano (16.158), porém também teve a maior quantidade de defeitos (177)
+    A linha com mais defeitos foi a C, porém foi a que mais produziu (21.498)
 
-# Respostas dos problemas
+# Comandos utilizados em SQL
+select shift as linha, AVG(output_units) as media_prod from production group by shift;
+select date, downtime_minutes from production order by downtime_minutes desc limit 5;
+select p.date, p.output_units, p.machine_utilization, q.defects_count, q.defect_rate from production p join quality q on p.date = q.date;
