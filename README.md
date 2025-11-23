@@ -1,12 +1,12 @@
 ## Estudo de SQL e Powerbi
 
 # Dashboard com PowerBI
-    Produção por linha
-    ![Dashboard Industrial](images/prod_shift.png)
-    Defeitos por linha
-    ![Dashboard Industrial](images/defect_shift.png)
-    Média de defeitos
-    ![Dashboard Industrial](images/defect_mean.png)
+**Produção por linha**
+![Dashboard Industrial](images/prod_shift.png)
+**Defeitos por linha**
+![Dashboard Industrial](images/defect_shift.png)
+**Média de defeitos**
+![Dashboard Industrial](images/defect_mean.png)
 
 # Ferramentas
     MySQL para consultas
