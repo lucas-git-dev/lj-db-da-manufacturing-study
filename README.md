@@ -3,8 +3,10 @@
 # Dashboard com PowerBI
 **Produção por linha**
 ![Dashboard Industrial](images/prod_shift.png)
+
 **Defeitos por linha**
 ![Dashboard Industrial](images/defect_shift.png)
+
 **Média de defeitos**
 ![Dashboard Industrial](images/defect_mean.png)
 
